@@ -1,0 +1,8 @@
+import pandas as pd
+file_path = r"C:\Users\diana\OneDrive\Documents\VAT\data\data.csv"
+df = pd.read_csv(file_path)
+subset = df.sample(n=200, random_state=42)
+print(f"Număr companii extrase: {len(subset)}")
+print(subset.head())
+subset_clean = subset.dropna()
+subset.to_csv("200_companies.csv", index=False)
